@@ -28,8 +28,8 @@
   --color-line: var(--color-line);
   --color-blue-dusty: var(--color-blue-dusty);
   --color-clay: var(--color-clay);
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
 }
 
 body {
@@ -48,21 +48,12 @@ body {
   font-family: var(--font-display);
 }
 
-/* index-card stitched border, used on book cards */
 .card-stitch {
   position: relative;
   border: 1px solid var(--color-line);
   background-color: var(--color-card);
 }
-.card-stitch::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px dashed var(--color-line);
-  pointer-events: none;
-}
 
-/* focus ring used across interactive elements */
 .focus-ring:focus-visible {
   outline: 2px solid var(--color-teal);
   outline-offset: 2px;
