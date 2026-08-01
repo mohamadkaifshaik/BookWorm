@@ -3,62 +3,60 @@ import { connectDB } from "@/lib/db";
 import Book from "@/models/Book";
 import { getUserId } from "@/lib/session";
 
-export async function GET(request) {
-  const userId = await getUserId();
-  if (!userId) {
-    return NextResponse.json({ error: "Not signed in." }, { status: 401 });
-  }
-
-  await connectDB();
-
-  const { searchParams } = new URL(request.url);
-  const status = searchParams.get("status");
-  const tag = searchParams.get("tag");
-
-  const query = { owner: userId };
-  if (status) query.status = status;
-  if (tag) query.tags = tag;
-
-  const books = await Book.find(query).sort({ createdAt: -1 });
-  return NextResponse.json({ books });
-}
-
-export async function POST(request) {
+export async function PATCH(request, { params }) {
   const userId = await getUserId();
   if (!userId) {
     return NextResponse.json({ error: "Not signed in." }, { status: 401 });
   }
 
   try {
-    const { title, author, tags, status } = await request.json();
+    const { id } = await params;
+    const updates = await request.json();
 
-    if (!title?.trim() || !author?.trim()) {
-      return NextResponse.json(
-        { error: "Title and author are required." },
-        { status: 400 },
-      );
-    }
+    const allowed = {};
+    if (typeof updates.title === "string") allowed.title = updates.title.trim();
+    if (typeof updates.author === "string")
+      allowed.author = updates.author.trim();
+    if (Array.isArray(updates.tags))
+      allowed.tags = updates.tags.map((t) => t.trim()).filter(Boolean);
+    if (["want-to-read", "reading", "completed"].includes(updates.status))
+      allowed.status = updates.status;
 
     await connectDB();
 
-    const book = await Book.create({
-      owner: userId,
-      title: title.trim(),
-      author: author.trim(),
-      tags: Array.isArray(tags)
-        ? tags.map((t) => t.trim()).filter(Boolean)
-        : [],
-      status: ["want-to-read", "reading", "completed"].includes(status)
-        ? status
-        : "want-to-read",
-    });
+    const book = await Book.findOneAndUpdate(
+      { _id: id, owner: userId },
+      allowed,
+      { new: true },
+    );
 
-    return NextResponse.json({ book }, { status: 201 });
+    if (!book) {
+      return NextResponse.json({ error: "Book not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({ book });
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { error: "Something went wrong adding that book." },
+      { error: "Something went wrong updating that book." },
       { status: 500 },
     );
   }
+}
+
+export async function DELETE(request, { params }) {
+  const userId = await getUserId();
+  if (!userId) {
+    return NextResponse.json({ error: "Not signed in." }, { status: 401 });
+  }
+
+  const { id } = await params;
+  await connectDB();
+
+  const book = await Book.findOneAndDelete({ _id: id, owner: userId });
+  if (!book) {
+    return NextResponse.json({ error: "Book not found." }, { status: 404 });
+  }
+
+  return NextResponse.json({ ok: true });
 }

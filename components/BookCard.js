@@ -21,44 +21,19 @@ export default function BookCard({
         <div className="flex items-center gap-1">
           <button
             onClick={() => onEdit(book)}
-            className="focus-ring text-ink-soft hover:text-teal rounded p-1 transition-colors cursor-pointer"
+            className="focus-ring text-teal bg-teal/10 hover:bg-teal/20 px-3 py-1 text-xs font-semibold rounded-full transition-all cursor-pointer"
             aria-label={`Edit ${book.title}`}
             title="Edit"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 20h9" />
-              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z" />
-            </svg>
+            Edit
           </button>
           <button
             onClick={() => onDelete(book)}
-            className="focus-ring text-ink-soft hover:text-clay rounded p-1 transition-colors cursor-pointer"
+            className="focus-ring text-red-600 bg-red-100 hover:bg-red-200 px-3 py-1 text-xs font-semibold rounded-full transition-all cursor-pointer"
             aria-label={`Delete ${book.title}`}
             title="Delete"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M3 6h18" />
-              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-            </svg>
+            Delete
           </button>
         </div>
       </div>
