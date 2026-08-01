@@ -1,6 +1,6 @@
 export default function EmptyState({ title, subtitle, actionLabel, onAction }) {
   return (
-    <div className="card-stitch rounded-lg py-16 px-6 flex flex-col items-center text-center gap-3">
+    <div className="card rounded-lg py-16 px-6 flex flex-col items-center text-center gap-3">
       <span className="text-3xl" aria-hidden="true">
         📚
       </span>

@@ -47,7 +47,7 @@ export default function SignupPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="card-stitch rounded-xl p-6 flex flex-col gap-4"
+          className="card rounded-xl p-6 flex flex-col gap-4"
         >
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">
@@ -61,7 +61,7 @@ export default function SignupPage() {
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
-              placeholder="Ada Lovelace"
+              placeholder="What's your nice name?"
             />
           </div>
 
@@ -77,7 +77,7 @@ export default function SignupPage() {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
-              placeholder="you@example.com"
+              placeholder="What's your email-ID?"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default function SignupPage() {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
-              placeholder="At least 6 characters"
+              placeholder="Type at least 6 characters and remember"
             />
           </div>
 
@@ -122,7 +122,7 @@ export default function SignupPage() {
             href="/login"
             className="text-teal-dark font-medium hover:underline"
           >
-            Log in
+            Click me
           </Link>
         </p>
       </div>

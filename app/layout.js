@@ -1,15 +1,14 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Bookworm — a personal book manager",
-  description:
-    "Log your books, track your reading, and rediscover your favorite authors.",
+  title: "Bookworm — an online library",
+  description: "Log, track, and rediscover.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full antialiased">
-      {/* eslint-disable @next/next/no-page-custom-font -- App Router root layout, not pages/_document */}
+      {/* eslint-disable @next/next/no-page-custom-font */}
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

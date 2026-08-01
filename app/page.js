@@ -38,22 +38,21 @@ export default async function LandingPage() {
           <span className="italic">and every one you will.</span>
         </h1>
         <p className="text-ink-soft text-lg max-w-lg mb-10">
-          Bookworm is a small, personal library for tracking what you're
-          reading, what you've finished, and whats waiting on the shelf -
-          nothing more, nothing less.
+          Bookworm is a small, personal library for tracking what you are
+          reading, what you have finished, and whats waiting to be read.
         </p>
         <div className="flex items-center gap-4">
           <Link
             href="/signup"
             className="focus-ring rounded-md bg-teal text-paper text-sm font-medium px-6 py-3 hover:bg-teal-dark transition-colors"
           >
-            Start your shelf
+            Wanna be a reader?
           </Link>
           <Link
             href="/login"
             className="focus-ring rounded-md border border-line text-sm font-medium px-6 py-3 text-ink-soft hover:text-ink transition-colors"
           >
-            I already have one
+            Already a reader?
           </Link>
         </div>
       </section>
@@ -62,7 +61,7 @@ export default async function LandingPage() {
         <FeatureCard
           emoji="📖"
           title="Catalog freely"
-          text="Add books with a title, author, and your own tags — organize your shelf your way."
+          text="Add books with a title, author, and your own tags, organize your shelf your way."
         />
         <FeatureCard
           emoji="📘"
@@ -72,7 +71,7 @@ export default async function LandingPage() {
         <FeatureCard
           emoji="✅"
           title="See it clearly"
-          text="A calm dashboard shows your totals at a glance — no clutter, just clarity."
+          text="A calm dashboard shows your totals at a glance no clutter, just clarity."
         />
       </section>
     </main>
@@ -81,7 +80,7 @@ export default async function LandingPage() {
 
 function FeatureCard({ emoji, title, text }) {
   return (
-    <div className="card-stitch rounded-lg p-6 text-left">
+    <div className="card rounded-lg p-6 text-left">
       <span className="text-2xl" aria-hidden="true">
         {emoji}
       </span>

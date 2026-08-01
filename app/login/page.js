@@ -47,7 +47,7 @@ export default function LoginPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="card-stitch rounded-xl p-6 flex flex-col gap-4"
+          className="card rounded-xl p-6 flex flex-col gap-4"
         >
           <div>
             <label htmlFor="email" className="block text-sm font-medium mb-1">
@@ -61,7 +61,7 @@ export default function LoginPage() {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
-              placeholder="you@example.com"
+              placeholder="keep your email-ID here"
             />
           </div>
 
@@ -80,7 +80,7 @@ export default function LoginPage() {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
-              placeholder="••••••••"
+              placeholder="keep your password here"
             />
           </div>
 
@@ -105,7 +105,7 @@ export default function LoginPage() {
             href="/signup"
             className="text-teal-dark font-medium hover:underline"
           >
-            Create an account
+            Wanna create an account?
           </Link>
         </p>
       </div>

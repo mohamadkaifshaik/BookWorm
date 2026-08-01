@@ -19,10 +19,7 @@ export default function Navbar({ userName }) {
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="font-display italic text-2xl text-teal-dark">
-            Bookworm
-          </span>
-          <span className="hidden sm:inline text-xs text-ink-soft border-l border-line pl-2 ml-1">
-            your shelf, kept
+            Bookworm - an online library
           </span>
         </div>
         <div className="flex items-center gap-4">

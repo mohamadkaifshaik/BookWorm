@@ -13,7 +13,7 @@ export default function BookCard({
   const catalogNo = String(index + 1).padStart(3, "0");
 
   return (
-    <article className="card-stitch rounded-lg p-5 flex flex-col gap-3 relative">
+    <article className="card rounded-lg p-5 flex flex-col gap-3 relative">
       <div className="flex items-start justify-between gap-3">
         <span className="font-display text-xs tracking-widest text-ink-soft/70">
           NO. {catalogNo}
