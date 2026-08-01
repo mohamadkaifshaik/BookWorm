@@ -1,3 +1,70 @@
+## Bookworm 🪱 - Personal Book Manager
+
+A simple full-stack app to track the books I'm reading, want to read, and have finished.
+
+## Features
+
+- Sign up / log in / log out (JWT auth)
+- Add, edit, and delete books
+- Each book has a title, author, tags, and status
+- Filter books by status or tag
+- Dashboard shows total books, currently reading, and completed
+
+## Tech Stack
+
+- **Frontend:** Next.js (App Router)
+- **Styling:** Tailwind CSS
+- **Backend:** Next.js API routes
+- **Database:** MongoDB (Mongoose)
+- **Auth:** JWT stored in an httpOnly cookie
+
+## Project Structure
+
+app/ -> main
+page.js -> landing page
+login/ -> login page
+signup/ -> signup page
+dashboard/ -> main dashboard (protected)
+api/ -> restapis
+auth/ -> signup, login, logout, me
+books/ -> book CRUD routes
+components/ -> UI components (book card, forms, navbar, etc)
+lib/ -> db connection, auth helpers
+models/ -> User and Book schemas
+
+## Getting Started
+
+1. Install dependencies:
+
+```bash
+   npm install
+```
+
+2. Copy the example env file and fill it in:
+
+```bash
+   cp .env.example .env.local
+```
+
+You'll need:
+
+- `MONGODB_URI` - your MongoDB connection string (Atlas or local)
+- `JWT_SECRET` - any random string, used to sign JWTs
+
+3. Run the dev server:
+
+```bash
+   npm run dev
+```
+
+Open [http://localhost:3000]
+
+## Notes
+
+- Passwords are hashed with bcrypt before being stored.
+- Every book is tied to a `owner` field, so users can only see/edit their own books.
+- Protected routes (like `/dashboard`) redirect to `/login` if you're not signed in.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
