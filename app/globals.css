@@ -2,16 +2,16 @@
 
 :root {
   --color-paper: #f4f0e4;
-  --color-card: #fbf8f0;
+  --color-card: #fbf8f0db;
   --color-ink: #22301f;
   --color-ink-soft: #55604f;
-  --color-teal: #2f4a3e;
+  --color-teal: #3587ec;
   --color-teal-dark: #1e332a;
-  --color-brass: #b3813f;
+  --color-brass: #ff9100;
   --color-brass-soft: #e7d3ab;
-  --color-sage: #8fa98e;
+  --color-sage: #25c51f;
   --color-line: #d8cfb8;
-  --color-blue-dusty: #5f7896;
+  --color-blue-dusty: #376db0;
   --color-clay: #a85c3f;
 }
 

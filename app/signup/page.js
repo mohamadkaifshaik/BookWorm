@@ -38,7 +38,7 @@ export default function SignupPage() {
             href="/"
             className="font-display italic text-3xl text-teal-dark"
           >
-            Bookworm
+            Bookworm 🪱
           </Link>
           <p className="text-sm text-ink-soft mt-2">
             Start keeping your shelf.

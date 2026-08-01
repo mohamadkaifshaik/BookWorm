@@ -10,7 +10,7 @@ export default async function LandingPage() {
     <main className="flex-1 flex flex-col">
       <header className="max-w-5xl w-full mx-auto px-6 py-6 flex items-center justify-between">
         <span className="font-display italic text-2xl text-teal-dark">
-          Bookworm
+          Bookworm 🪱
         </span>
         <nav className="flex items-center gap-3">
           <Link

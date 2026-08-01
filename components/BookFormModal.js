@@ -115,7 +115,7 @@ export default function BookFormModal({
               type="text"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-              placeholder="The Overstory"
+              placeholder="Title of the book"
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
             />
           </div>
@@ -129,24 +129,21 @@ export default function BookFormModal({
               type="text"
               value={form.author}
               onChange={(e) => setForm({ ...form, author: e.target.value })}
-              placeholder="Richard Powers"
+              placeholder="Author of the book"
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
             />
           </div>
 
           <div>
             <label htmlFor="tags" className="block text-sm font-medium mb-1">
-              Tags{" "}
-              <span className="text-ink-soft font-normal">
-                (comma-separated)
-              </span>
+              Tags <span className="text-ink-soft font-normal"></span>
             </label>
             <input
               id="tags"
               type="text"
               value={form.tags}
               onChange={(e) => setForm({ ...form, tags: e.target.value })}
-              placeholder="fiction, nature, favorites"
+              placeholder=" you can write as fiction, favorites"
               className="focus-ring w-full rounded-md border border-line bg-paper px-3 py-2 text-sm"
             />
           </div>
