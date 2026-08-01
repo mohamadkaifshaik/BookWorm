@@ -1,65 +1,92 @@
-import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getUserId } from "@/lib/session";
 
-export default function Home() {
+export default async function LandingPage() {
+  const userId = await getUserId();
+  if (userId) redirect("/dashboard");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="flex-1 flex flex-col">
+      <header className="max-w-5xl w-full mx-auto px-6 py-6 flex items-center justify-between">
+        <span className="font-display italic text-2xl text-teal-dark">
+          Bookworm
+        </span>
+        <nav className="flex items-center gap-3">
+          <Link
+            href="/login"
+            className="focus-ring text-sm font-medium text-ink-soft hover:text-ink px-3 py-1.5"
+          >
+            Log In
+          </Link>
+          <Link
+            href="/signup"
+            className="focus-ring text-sm font-medium bg-teal text-paper rounded-md px-4 py-1.5 hover:bg-teal-dark transition-colors"
+          >
+            Sign Up
+          </Link>
+        </nav>
+      </header>
+
+      <section className="max-w-3xl mx-auto px-6 pt-16 pb-20 text-center flex flex-col items-center">
+        <span className="text-xs tracking-[0.2em] uppercase text-brass font-medium mb-5">
+          A quiet place for your books
+        </span>
+        <h1 className="font-display text-5xl sm:text-6xl leading-[1.1] mb-6">
+          Every book you have read,
+          <br />
+          <span className="italic">and every one you will.</span>
+        </h1>
+        <p className="text-ink-soft text-lg max-w-lg mb-10">
+          Bookworm is a small, personal library for tracking what you're
+          reading, what you've finished, and whats waiting on the shelf -
+          nothing more, nothing less.
+        </p>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/signup"
+            className="focus-ring rounded-md bg-teal text-paper text-sm font-medium px-6 py-3 hover:bg-teal-dark transition-colors"
+          >
+            Start your shelf
+          </Link>
+          <Link
+            href="/login"
+            className="focus-ring rounded-md border border-line text-sm font-medium px-6 py-3 text-ink-soft hover:text-ink transition-colors"
+          >
+            I already have one
+          </Link>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-6 pb-24 grid grid-cols-1 sm:grid-cols-3 gap-5 w-full">
+        <FeatureCard
+          emoji="📖"
+          title="Catalog freely"
+          text="Add books with a title, author, and your own tags — organize your shelf your way."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        <FeatureCard
+          emoji="📘"
+          title="Track your pace"
+          text="Move books between want to read, reading, and completed as you go."
+        />
+        <FeatureCard
+          emoji="✅"
+          title="See it clearly"
+          text="A calm dashboard shows your totals at a glance — no clutter, just clarity."
+        />
+      </section>
+    </main>
+  );
+}
+
+function FeatureCard({ emoji, title, text }) {
+  return (
+    <div className="card-stitch rounded-lg p-6 text-left">
+      <span className="text-2xl" aria-hidden="true">
+        {emoji}
+      </span>
+      <h3 className="font-display text-lg mt-3 mb-1">{title}</h3>
+      <p className="text-sm text-ink-soft">{text}</p>
     </div>
   );
 }
