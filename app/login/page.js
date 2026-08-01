@@ -38,7 +38,7 @@ export default function LoginPage() {
             href="/"
             className="font-display italic text-3xl text-teal-dark"
           >
-            Marginalia
+            Bookworm
           </Link>
           <p className="text-sm text-ink-soft mt-2">
             Welcome back to your shelf.
